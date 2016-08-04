@@ -13,14 +13,16 @@
 <p>
   Lyrics:
 </p>
-<%= ugly_lyrics(@track.lyrics) %>
+<div class="well">
+  <%= ugly_lyrics(@track.lyrics) %>
+</div>
 
 <h3>Notes</h3>
 <% @track.notes.each do |note| %>
   <%= render 'notes/note', note: note %>
 <% end %>
 
-<%= link_to "Edit", edit_track_url(@track) %>
-<%= link_to "Destroy", @track, method: "delete" %>
+<%= link_to "Edit", edit_track_url(@track), class: "btn btn-info" %>
+<%= link_to "Destroy", @track, method: "delete", class: "btn btn-danger" %>
 
 <%= render "notes/form", track: @track %>

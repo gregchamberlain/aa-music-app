@@ -12,6 +12,6 @@
   <label>Lyrics: </label>
   <textarea name="track[lyrics]" rows="8" cols="40"><%= track.lyrics %></textarea>
   <label>Kind</label>
-  Bonus<input type="radio" name="track[kind]" value="regular" <%= track.kind.nil? || track.kind == "regular" ? "checked" : "" %>>
-  Regular<input type="radio" name="track[kind]" value="bonus" <%= track.kind == "bonus" ? "checked" : "" %>>
+  Regular<input type="radio" name="track[kind]" value="regular" <%= track.kind.nil? || track.kind == "regular" ? "checked" : "" %>>
+  Bonus<input type="radio" name="track[kind]" value="bonus" <%= track.kind == "bonus" ? "checked" : "" %>>
 <% end %>

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     session[:session_token] = user.session_token
-    redirect_to user
+    redirect_to bands_url
   end
 
   def already_logged_in

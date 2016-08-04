@@ -5,7 +5,7 @@ module TracksHelper
     html = ""
     lines.each do |line|
       html += <<-HTML
-        <pre>&#9835;  #{h(line)}</pre>
+        <p>&#9835;  #{h(line)}</p>
       HTML
     end
     html.html_safe

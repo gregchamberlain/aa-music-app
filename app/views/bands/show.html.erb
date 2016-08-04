@@ -3,11 +3,11 @@
 </p>
 
 
-<%= link_to "Edit", edit_band_url(@band) %>
-<%= link_to "Destroy", @band, method: "delete" %>
+<%= link_to "Edit", edit_band_url(@band), class: "btn btn-info" %>
+<%= link_to "Destroy", @band, method: "delete", class: "btn btn-danger" %>
 <%= link_to "Bands", bands_url %>
 <h3>Albums</h3>
-<table>
+<table class="table">
   <thead>
     <th>Name</th>
   </thead>
@@ -19,3 +19,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "New Album", new_album_url %>

@@ -14,8 +14,8 @@ class BandsController < ApplicationController
   end
 
   def create
-    band = Band.new(band_params)
-    save(band)
+    @band = Band.new(band_params)
+    save(@band)
   end
 
   def update
