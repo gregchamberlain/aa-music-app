@@ -1,17 +1,38 @@
 <%= quick_form action: "New Track", url: url, method: method do %>
-  <label>Album: </label>
-  <select name="track[album_id]">
-    <% albums.each do |album| %>
-      <option value="<%= album.id %>" <%= album == track.album ? "selected" : "" %>>
-        <%= album.name %>
-      </option>
-    <% end %>
-  </select>
-  <label>Name: </label>
-  <input type="text" name="track[name]" value="<%= track.name %>">
-  <label>Lyrics: </label>
-  <textarea name="track[lyrics]" rows="8" cols="40"><%= track.lyrics %></textarea>
-  <label>Kind</label>
-  Regular<input type="radio" name="track[kind]" value="regular" <%= track.kind.nil? || track.kind == "regular" ? "checked" : "" %>>
-  Bonus<input type="radio" name="track[kind]" value="bonus" <%= track.kind == "bonus" ? "checked" : "" %>>
+  <div class="form-group">
+    <label>Album</label>
+    <select name="track[album_id]" class="form-control">
+      <% albums.each do |album| %>
+        <option value="<%= album.id %>" <%= album == track.album ? "selected" : "" %>>
+          <%= album.name %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="track[name]" value="<%= track.name %>" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Lyrics</label>
+    <textarea name="track[lyrics]" rows="8" cols="40" class="form-control"><%= track.lyrics %></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Kind</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="track[kind]" value="regular" <%= track.kind.nil? || track.kind == "regular" ? "checked" : "" %>>
+        Regular
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="track[kind]" value="bonus" <%= track.kind == "bonus" ? "checked" : "" %>>
+        Bonus
+      </label>
+    </div>
+  </div>
+
 <% end %>

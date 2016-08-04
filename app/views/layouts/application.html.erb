@@ -19,6 +19,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><%= link_to "Profile", user_url %></li>
             <li><%= link_to "Logout", sessions_destroy_url, method: "delete" %></li>
           </ul>
         </li>
@@ -31,6 +32,17 @@
   </nav>
 
   <div class="container">
+
+    <% if flash[:info] %>
+      <div class="alert alert-info" role="alert">
+        <ul>
+          <% flash[:info].each do |info| %>
+            <li><%= info %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <% if flash[:errors] %>
       <div class="alert alert-danger" role="alert">
         <ul>
@@ -38,6 +50,13 @@
             <li><%= error %></li>
           <% end %>
         </ul>
+      </div>
+    <% end %>
+
+    <% if flash[:email] && flash[:email][:user_id] %>
+      <div class="alert alert-info" role="alert">
+        <%= flash[:email][:message] %>
+        <%= button_to "Resend email", resend_user_url(flash[:email][:user_id]), class: "btn btn-default" %>
       </div>
     <% end %>
 

@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     session[:session_token] = user.session_token
-    redirect_to bands_url
   end
 
   def already_logged_in
@@ -22,7 +21,14 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    redirect_to new_session_url unless current_user
+    if current_user
+      unless current_user.activated
+        flash[:errors] = ["You must activate your accout before visiting that page!"]
+        redirect_to user_url
+      end
+    else
+      redirect_to new_session_url
+    end
   end
 
   private

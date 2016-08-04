@@ -9,7 +9,7 @@ module ApplicationHelper
     HTML
     f += text
     f += <<-HTML
-        <input type="submit">
+        <input type="submit" class="btn btn-success" value="Save">
       </form>
     HTML
     f.html_safe

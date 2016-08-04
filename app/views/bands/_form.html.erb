@@ -1,5 +1,8 @@
 <%= quick_form action: "New Band", url: url, method: method do %>
+<div class="form-group">
   <label>
-    <input type="text" name="band[name]" value="<%= band.name %>">
+    Name
+    <input type="text" name="band[name]" value="<%= band.name %>" class="form-control">
   </label>
+</div>
 <% end %>

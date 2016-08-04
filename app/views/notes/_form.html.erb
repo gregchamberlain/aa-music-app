@@ -1,7 +1,7 @@
-<%= quick_form action: "New Note", url: notes_url, method: "post" do %>
+<%= quick_form url: notes_url, method: "post" do %>
   <input type="hidden" name="note[track_id]" value="<%= track.id %>">
-  <label>
-    Note:
-    <textarea name="note[body]" rows="8" cols="40"></textarea>
-  </label>
+  <div class="form-group">
+    <label>New Note</label>
+    <textarea name="note[body]" rows="4" cols="40" class="form-control"></textarea>
+  </div>
 <% end %>
