@@ -1,0 +1,13 @@
+<%= quick_form action: "New Album", url: url, method: method do %>
+  <select name="album[band_id]">
+    <% bands.each do |band| %>
+      <option value="<%= band.id %>" <%= band == album.band ? "selected" : "" %>>
+        <%= band.name %>
+      </option>
+    <% end %>
+  </select>
+  <input type="text" name="album[name]" value="<%= album.name %>">
+  <label>Kind</label>
+  Studio<input type="radio" name="album[kind]" value="studio" <%= album.kind.nil? || album.kind == "studio" ? "checked" : "" %>>
+  Live<input type="radio" name="album[kind]" value="live" <%= album.kind == "live" ? "checked" : "" %>>
+<% end %>

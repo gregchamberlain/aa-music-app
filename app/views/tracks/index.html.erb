@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <td>Album</td>
+    <td>Name</td>
+  </thead>
+  <tbody>
+    <% @tracks.each do |track| %>
+      <tr>
+        <td><%= link_to track.album.name, track.album %></td>
+        <td><%= link_to track.name, track %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

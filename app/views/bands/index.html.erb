@@ -1,0 +1,12 @@
+<table>
+  <thead>
+    <td>Name</td>
+  </thead>
+  <tbody>
+    <% @bands.each do |band| %>
+      <tr>
+        <td><%= link_to band.name, band %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
